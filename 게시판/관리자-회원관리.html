@@ -3,316 +3,289 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/pagination.css">
-    <link rel="stylesheet" href="css/table.css">
     <title>게시판</title>
-    <style>
-        a {
-            text-decoration-line: none;
-            color: black;
-        }
-
-        div {
-            border: 1px solid;
-            position: absolute;
-            left: 800px;
-            width: 220px;
-            height: 450px;
-            top: 176px;
-        }
-
-        div>div {
-            position: relative;
-            width: 210px;
-            height: 150px;
-            left: 4px;
-            top: 4px;
-            border: 1px solid;
-        }
-
-        #znlr td {
-            width: 100px;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            border: 1px solid;
-            margin-top: 10px;
-            margin-left: 10px;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            background-color: lightgray;
-        }
-
-        .top-aside {
-            background-color: lightgray;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        body {
-            width: 1024px;
-            height: 860px;
-            border: 1px solid;
-        }
-
-        body>table {
-            margin-top: 80px;
-            margin-left: 10px;
-            margin-bottom: 50px;
-            border-collapse: collapse;
-            overflow: auto;
-        }
-
-        caption {
-            text-align: left;
-        }
-
-        .btn-검색 {
-            width: 50px;
-            height: 37px;
-            position: relative;
-            bottom: 20px;
-        }
-
-        #searchInput {
-            margin-left: 10px;
-            width: 200px;
-            height: 31px;
-            position: relative;
-            bottom: 21px;
-        }
-
-        .btn-삭제 {
-            width: 120px;
-            height: 35px;
-        }
-
-        .delete-container {
-            position: absolute;
-            top: 130px;
-            left: 920px;
-            border: 1px solid;
-            width: 120px;
-            height: 35px;
-        }
-        .hide {
-            display: none;
-        }
-
-        .active-page {
-            display: block;
-        }
-        .selected {
-            background-color: lightblue;
-        }
-    </style>
 </head>
+<style>
+    * {
+        margin: 5px;
+    }
+
+    a {
+        text-decoration-line: none;
+        color: black;
+    }
+
+    body {
+        border: 1px solid;
+        display: absolute;
+    }
+
+    body>a>h1 {
+        /*게시판*/
+        height: 50px;
+        /* border: 1px solid black; */
+        text-align: center;
+        line-height: 50px;
+        font-size: 2.5rem;
+        padding: 10px;
+        margin-bottom: 50px;
+        /* background-color: lightgray; */
+    }
+
+    .subtitle {
+        /*내가 쓴 글*/
+        /* border:1px solid; */
+        /* margin-bottom: 20px;
+        margin-left: 20px; */
+        font-size: 1.5rem;
+        position: relative;
+        bottom: 70px;
+        left: 60px;
+
+    }
+
+    body>section {
+        height: auto;
+        /* border: 1px solid; */
+    }
+
+    body>section>thead {
+        width: 100%;
+        height: 600px;
+        text-align: center;
+        line-height: 600px;
+    }
+
+    body>.back {
+        /*뒤로가기 버튼*/
+        width: 80px;
+        height: 50px;
+    }
+
+    .back:hover {
+        cursor: pointer;
+    }
+
+    body>section>table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    section>table>thead>tr {
+        /* background-color: lightgrey; */
+
+    }
+
+    section>table>tbody>tr:hover {
+        cursor: pointer;
+    }
+
+
+    section>table>thead>tr>th {
+        height: 50px;
+        /* border:1px solid; */
+        text-align: center;
+
+    }
+
+    section>table>tbody>tr {}
+
+    section>table>tbody>tr>td {
+        height: 25px;
+        text-align: center;
+        border: 1px solid;
+    }
+    .delete-button{
+        width: 100px;
+        height: 30px;
+
+    }
+</style>
+
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const tableHead = document.querySelector('section table tbody');
+        tableHead.addEventListener('click', function () {
+            window.location.href = '내가쓴글조회목록-내가쓴글.html';
+        });
+    });
+</script> -->
 
 <body>
-    <a href="메인화면.html">
-        <h1>게시판</h1>
+    <a href="index.html">
+        <h1>"이름을 뭘로하지" 게시판</h1>
     </a>
-    <table id="userTable">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>PW</th>
-                <th>ROLE</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>오구</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구3</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구4</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구5</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구6</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구7</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구8</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구9</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구10</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구11</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구12</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구13</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구14</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구15</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구16</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구17</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구18</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구19</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-            <tr>
-                <td>오구20</td>
-                <td>123</td>
-                <td>MEMBER</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- HTML -->
-    <input type="text" id="searchInput" placeholder="유저 검색">
+    <input type="text" id="searchInput" placeholder="글쓴이나 제목 검색">
     <button class="btn-검색" onclick="searchUser()">검색</button>
-
-    <script>
-        function searchUser() {
-            var searchValue = document.getElementById('searchInput').value; // 검색어 입력값 가져오기
-            var table = document.querySelector('#userTable'); // 테이블 요소 가져오기
-            var rows = table.getElementsByTagName('tr'); // 테이블의 모든 행 가져오기
-
-            for (var i = 1; i < rows.length; i++) { // 헤더를 제외한 각 행에 대해 반복
-                var cells = rows[i].getElementsByTagName('td'); // 현재 행의 모든 셀 가져오기
-                var found = false;
-
-                for (var j = 0; j < cells.length; j++) { // 각 셀에 대해 반복
-                    if (cells[j].innerText === searchValue) { // 셀의 텍스트가 검색어와 일치하는지 확인
-                        found = true;
-                        break;
-                    }
-                }
-
-                if (found) {
-                    rows[i].classList.remove('hide'); // 일치하는 행을 보여줌
-                } else {
-                    rows[i].classList.add('hide'); // 일치하지 않는 행을 숨김
-                }
-            }
-        }
-
-        function showPage(page) {
-        var table = document.querySelector('#userTable'); // 테이블 요소 가져오기
-        var rows = table.getElementsByTagName('tr'); // 테이블의 모든 행 가져오기
-        var rowsPerPage = 10; // 페이지당 보여지는 행의 개수
-        var startIndex = (page - 1) * rowsPerPage + 1; // 페이지의 시작 인덱스
-        var endIndex = startIndex + rowsPerPage; // 페이지의 끝 인덱스
-
-        for (var i = 1; i < rows.length; i++) { // 헤더를 제외한 각 행에 대해 반복
-            if (i >= startIndex && i < endIndex) {
-                rows[i].classList.remove('hide'); // 페이지에 해당하는 행을 보여줌
-            } else {
-                rows[i].classList.add('hide'); // 페이지에 해당하지 않는 행을 숨김
-            }
-        }
-
-        // 페이지 번호 스타일 변경
-        var pageLinks = document.querySelectorAll('.num');
-        for (var i = 0; i < pageLinks.length; i++) {
-            if (i + 1 === page) {
-                pageLinks[i].classList.add('selected');
-            } else {
-                pageLinks[i].classList.remove('selected');
-            }
-        }
-        }
-
-        showPage(1); // 초기 페이지 설정
-
-        // 처음 페이지 링크 클릭 이벤트 처리
-        var firstPageLink = document.querySelector('.first');
-        firstPageLink.addEventListener('click', function() {
-            showPage(1);
-        });
-
-
-        function selectRow(row) {
-        // 선택한 행 스타일 변경
-        row.classList.toggle('selected');
-}
-    </script>
-
-    <div class="delete-container">
-        <button class="btn-삭제" onclick="deleteUser()">삭제</button>
+    <button class="delete-button" onclick="deleteSelectedRows()">삭제</button>
+    <div class="subtitle">
+        <h4>회원관리💩</h4>
     </div>
+    <section>
+        <table>
+            <!-- <caption>내가 쓴 글 목록</caption> -->
+            <colgroup>
+                <col style="width:40px">
+                <col style="width:300px">
+                <col style="width:300px">
+                <col style="width:200px">
+            </colgroup>
 
+            <thead>
+                <tr>
+                    <th>✔</th>
+                    <th>ID</th>
+                    <th>PW</th>
+                    <th>ROLE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구1</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구2</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구3</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구4</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구5</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구6</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구7</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구8</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구9</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구10</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구11</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구12</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구13</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구14</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구15</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구16</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구17</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구18</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구19</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구20</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구21</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>오구22</td>
+                    <td>1234</td>
+                    <td>MEMBER</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <a href="index.html"><button class="back">뒤로가기</button></a>
 
     <div class="page">
         <ul class="pagination modal">
-            <li><a href="#" class="first">처음 페이지</a></li>
-            <li><a href="#" class="arrow left"><<</a></li>
+            <li><a href="#" class="first" onclick="showPage(1)">처음 페이지</a></li>
+            <li><a href="#" class="arrow left"><</a>
+            </li>
             <li><a href="#" class="active num" onclick="showPage(1)">1</a></li>
             <li><a href="#" class="num" onclick="showPage(2)">2</a></li>
             <li><a href="#" class="num" onclick="showPage(3)">3</a></li>
@@ -322,10 +295,62 @@
             <li><a href="#" class="num" onclick="showPage(7)">7</a></li>
             <li><a href="#" class="num" onclick="showPage(8)">8</a></li>
             <li><a href="#" class="num" onclick="showPage(9)">9</a></li>
-            <li><a href="#" class="arrow right">>></a></li>
-            <li><a href="#" class="last">끝 페이지</a></li>
+            <li><a href="#" class="arrow right">></a></li>
+            <li><a href="#" class="last" onclick="showPage(9)">끝 페이지</a></li>
         </ul>
     </div>
+
+    <script>
+        function showPage(page) {
+            var table = document.querySelector('section table'); // 테이블 요소 가져오기
+            var rows = table.getElementsByTagName('tr'); // 테이블의 모든 행 가져오기
+
+            var rowsPerPage = 10; // 페이지당 보여지는 행의 개수
+            var startIndex = (page - 1) * rowsPerPage + 1; // 페이지의 시작 인덱스
+            var endIndex = startIndex + rowsPerPage - 1; // 페이지의 끝 인덱스
+
+            for (var i = 1; i < rows.length; i++) { // 헤더를 제외한 각 행에 대해 반복
+                if (i >= startIndex && i <= endIndex) { // 시작과 끝 인덱스 사이에 있는 행만 보이도록 설정
+                    rows[i].style.display = 'table-row'; // 행을 보이게 함
+                } else {
+                    rows[i].style.display = 'none'; // 행을 숨김
+                }
+            }
+            // 페이지 번호 스타일 변경
+            var pageLinks = document.querySelectorAll('.num');
+            for (var i = 0; i < pageLinks.length; i++) {
+                if (i + 1 === page) {
+                    pageLinks[i].classList.add('selected');
+                } else {
+                    pageLinks[i].classList.remove('selected');
+                }
+            }
+        }
+
+        showPage(1); // 초기 페이지 설정
+
+        // 페이지 링크 클릭 이벤트 처리
+        var pageLinks = document.querySelectorAll('.num');
+        for (var i = 0; i < pageLinks.length; i++) {
+            pageLinks[i].addEventListener('click', function (e) {
+                e.preventDefault(); // 링크 클릭 시 페이지 이동 방지
+                var page = parseInt(this.innerText); // 클릭한 페이지 번호 가져오기
+                showPage(page); // 해당 페이지로 이동
+            });
+        }
+        // 체크 후 삭제
+        function deleteSelectedRows() {
+            var table = document.querySelector('section table'); // 테이블 요소 가져오기
+            var checkboxes = table.querySelectorAll('tbody input[type="checkbox"]:checked'); // 선택된 체크박스 요소 가져오기
+
+            checkboxes.forEach(function (checkbox) {
+                var row = checkbox.parentNode.parentNode; // 체크박스의 부모 요소의 부모 요소인 행 가져오기
+                row.parentNode.removeChild(row); // 행을 테이블에서 제거
+            });
+        }
+
+        
+    </script>
 
 </body>
 

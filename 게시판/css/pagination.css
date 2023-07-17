@@ -1,12 +1,9 @@
 .page {
     text-align: center;
-    width: 700px;
+    width: 100%;
     height: 60px;
-    border: 0px;
-    left: 130px;
-    top: 780px;
-    /* bottom: 80px; */
-    justify-content: center;
+    /* border: 1px solid; */
+
   }
   
   .pagination {
